@@ -126,7 +126,7 @@ for (let i = 1; i <= 1000; i++) {
 
 
 # Interfața Streamlit
-st.title("Generare HTML copy to clipboard din Excel")
+st.title("Generare HTML copy to clipboard din Excel (pentru 1000 de rânduri)")
 st.subheader("Fișierul Excel trebuie să conțină coloanele 'text' și 'link'.")
 
 # Încărcarea fișierului Excel
