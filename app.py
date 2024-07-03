@@ -14,17 +14,58 @@ def generate_html(data):
 
     <!-- Texte pe acelasi rand -->
         <!-- Include fisierul CSS -->
-        <link rel="stylesheet" type="text/css" href="css/styles.css">
         <script src="https://kit.fontawesome.com/dfa46fd6a4.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
-
-        <!-- Titlul paginii ... -->
-        <div class="titlu">
-            <h1>Copy to Clipboard</h1>
-        </div>	
+    <style>
+        .copy-button {
+            font-size: 24px;
+            cursor: pointer;
+            color: #3272e2;  /* Adaugă aici culoarea pe care o dorești */
+            margin-left: 5px;  /* Adaugă o margine la stânga butonului */
+        }
+        .check-button {
+            font-size: 24px;
+            cursor: pointer;
+            color: green;  /* Adaugă aici culoarea pe care o dorești */
+            margin-left: 5px;  /* Adaugă o margine la stânga butonului */
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: 20px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            margin-right: 20px;
+        }
+        .text-button-group {  /* Grup pentru text și buton */
+            display: flex;
+            align-items: center;
+        }
+        .text-placeholder {         /* Pentru butoane fixate in dreapta */
+            width: 500px;
+            overflow: hidden;
+        }
+        .copied-text {
+            font-weight: bold;
+            background-color: #61f635;  /* Culoarea de fundal a textului "COPIAT!" */
+        }
+        .bold-text {
+            font-weight: bold;  /* Setează textul ca bold */
+            margin-right: 5px;  /* Adaugă o margine la dreapta */
+        }
+        .titlu {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        </style>
+            </head>
+            <body>
+        
+                <!-- Titlul paginii ... -->
+                <div class="titlu">
+                    <h1>Copy to Clipboard</h1>
+                </div>	
     """
-
     # Adăugarea fiecărui rând din dataframe în HTML
     for index, row in data.iterrows():
         html_content += f"""
@@ -36,9 +77,43 @@ def generate_html(data):
         """
 
     html_content += """
-        <script src="js/buton.js"></script>
-    </body>
-    </html>
+        <script>
+                for (let i = 1; i <= 100; i++) {
+                let copyButton = document.getElementById('copy-button-' + i);
+                let myInput = document.getElementById('myInput-' + i);
+                let textDisplay = document.getElementById('text-display-' + i);
+        
+                copyButton.addEventListener('click', function() {
+                    let originalText = textDisplay.innerText;
+                    myInput.value = originalText;
+                    myInput.style.display = 'block';
+                    myInput.select();
+                    document.execCommand('copy');
+                    myInput.style.display = 'none';
+        
+                    // Schimbă textul, adaugă stilul de text bold și culoarea de fundal
+                    textDisplay.innerText = 'COPIAT!';
+                    textDisplay.className = "copied-text";
+        
+                    // Schimbă iconița butonului și aplică noua clasă
+                    copyButton.className = "fa-solid fa-check check-button";
+                    
+                    // Revenire la textul original după 1 secundă și eliminarea stilului
+                    setTimeout(function() {
+                        textDisplay.innerText = originalText;
+                        textDisplay.className = "";
+                    }, 1000); // 1000 de milisecunde = 1 secundă
+        
+                    // Revenire la iconița originală după 1 secundă
+                    setTimeout(function() {
+                        copyButton.className = "fa-regular fa-copy copy-button";
+                    }, 1000); // 1000 de milisecunde = 1 secundă
+                });
+            }
+        
+        </script>
+        </body>
+        </html>
     """
     return html_content
 
