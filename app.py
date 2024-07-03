@@ -63,7 +63,7 @@ def generate_html(data):
         
                 <!-- Titlul paginii ... -->
                 <div class="titlu">
-                    <h1>Copy to Clipboard (for 1000 rows)</h1>
+                    <h1>Copy to Clipboard</h1>
                 </div>	
     """
     # Adăugarea fiecărui rând din dataframe în HTML
