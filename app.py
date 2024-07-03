@@ -125,6 +125,13 @@ for (let i = 1; i <= 1000; i++) {
     return html_content
 
 
+# Setari Streamlit
+st.set_page_config(
+    page_title="Copy to clipboard",
+    page_icon=":tada:",  # Poți folosi un emoji sau calea către un fișier imagine
+    layout="wide",  # Aceasta setează modul wide
+    # initial_sidebar_state="auto"  # Poți seta și starea inițială a barei laterale: "auto", "expanded", "collapsed"
+)
 # Interfața Streamlit
 st.title("Generare HTML copy to clipboard din Excel (pentru 1000 de rânduri)")
 st.subheader("Fișierul Excel trebuie să conțină coloanele 'text' și 'link'.")
