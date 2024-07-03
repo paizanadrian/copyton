@@ -1,0 +1,41 @@
+        .copy-button {
+            font-size: 24px;
+            cursor: pointer;
+            color: #3272e2;  /* Adaugă aici culoarea pe care o dorești */
+			margin-left: 5px;  /* Adaugă o margine la stânga butonului */
+        }
+        .check-button {
+            font-size: 24px;
+            cursor: pointer;
+            color: green;  /* Adaugă aici culoarea pe care o dorești */
+			margin-left: 5px;  /* Adaugă o margine la stânga butonului */
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+			margin-left: 20px;
+			margin-bottom: 10px;
+			margin-top: 10px;
+			margin-right: 20px;
+        }
+		.text-button-group {  /* Grup pentru text și buton */
+            display: flex;
+            align-items: center;
+        }
+      .text-placeholder {         /* Pentru butoane fixate in dreapta */
+            width: 500px;
+            overflow: hidden;
+        }
+		.copied-text {
+            font-weight: bold;
+            background-color: #61f635;  /* Culoarea de fundal a textului "COPIAT!" */
+        }
+        .bold-text {
+            font-weight: bold;  /* Setează textul ca bold */
+			margin-right: 5px;  /* Adaugă o margine la dreapta */
+        }
+        .titlu {
+			margin-left: 20px;
+			margin-bottom: 20px;
+		}
