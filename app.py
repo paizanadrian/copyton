@@ -133,7 +133,7 @@ st.set_page_config(
     # initial_sidebar_state="auto"  # Poți seta și starea inițială a barei laterale: "auto", "expanded", "collapsed"
 )
 # Interfața Streamlit
-st.title("Generare HTML copy to clipboard din Excel (pentru 1000 de rânduri)")
+st.title("Generare HTML copy to clipboard din Excel (max. 1000 de rânduri)")
 st.subheader("Fișierul Excel trebuie să conțină coloanele 'text' și 'link'.")
 
 # Încărcarea fișierului Excel
