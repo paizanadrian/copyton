@@ -70,7 +70,7 @@ def generate_html(data):
     for index, row in data.iterrows():
         html_content += f"""
         <div class="container">
-            <span class="bold-text">{row['text']}: </span><span id="text-display-{index + 1}">{row['link']}</span>
+            <span class="bold-text">{row['text']}: </span><span id="text-display-{index + 1}">{row['copy']}</span>
             <i id="copy-button-{index + 1}" class="fa-regular fa-copy copy-button"></i>
         </div>
         <input type="text" value="Textul initial" id="myInput-{index + 1}" style="display: none;">
@@ -134,7 +134,7 @@ st.set_page_config(
 )
 # Interfața Streamlit
 st.title("Generare HTML copy to clipboard din Excel (pentru 1000 de rânduri)")
-st.subheader("Fișierul Excel trebuie să conțină coloanele 'text' și 'link'.")
+st.subheader("Fișierul Excel trebuie să conțină coloanele 'text' și 'copy'.")
 
 # Încărcarea fișierului Excel
 uploaded_file = st.file_uploader("Alege un fișier Excel", type=["xlsx"])
@@ -147,7 +147,7 @@ if uploaded_file:
     st.write("Numele coloanelor citite din fișierul Excel:", df.columns.tolist())
 
     # Asigură-te că numele coloanelor sunt corecte
-    if 'text' in df.columns and 'link' in df.columns:
+    if 'text' in df.columns and 'copy' in df.columns:
         # Generarea codului HTML
         html_result = generate_html(df)
 
@@ -163,4 +163,4 @@ if uploaded_file:
             mime='text/html'
         )
     else:
-        st.error("Fișierul Excel trebuie să conțină coloanele 'text' și 'link'.")
+        st.error("Fișierul Excel trebuie să conțină coloanele 'text' și 'copy'.")
